@@ -9,7 +9,9 @@ demo中使用的是enet 1.3.13，根据官方教程编写而成，其中有几�
 2）发送时，总是出现最后的几十个包发不出去，server端接收不到，没办法就开始瞎试，最终改成了以下这样：
 
   // 发送前后各调用一次enet_host_service
+  ```
   enet_host_service (gclient, &event, 0);
-	enet_peer_send (gsendpeer, 0, packet);
+enet_peer_send (gsendpeer, 0, packet);
   enet_host_service (gclient, &event, 0);
+  ```
 
